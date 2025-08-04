@@ -6,6 +6,7 @@
  *
  * Return: Always 0 (Success)
  */
+ 
 int main(void)
 {
     Book *library = NULL;
