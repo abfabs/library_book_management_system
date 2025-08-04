@@ -12,9 +12,10 @@
  */
 int add_book(Book **head, char *title, char *author, char *isbn, int available)
 {
-    Book *new_book = malloc(sizeof(Book));
+    Book *new_book;
+    new_book = malloc(sizeof(Book));
 
-    if (!new_book)
+    if (new_book == NULL)
         return 0;
 
     strcpy(new_book->title, title);
@@ -33,23 +34,24 @@ int add_book(Book **head, char *title, char *author, char *isbn, int available)
  */
 void display_books(Book *head)
 {
-    Book *current = head;
+    Book *ptr = head; 
 
-    if (!current)
+    if (ptr == NULL)
     {
         printf("No books available.\n");
         return;
     }
 
-    while (current)
+    while (ptr != NULL)
     {
-        printf("Title: %s\n", current->title);
-        printf("Author: %s\n", current->author);
-        printf("ISBN: %s\n", current->isbn);
-        printf("Status: %s\n\n", current->available ? "Available" : "Borrowed");
-        current = current->next;
+        printf("Title: %s\n", ptr->title);
+        printf("Author: %s\n", ptr->author);
+        printf("ISBN: %s\n", ptr->isbn);
+        printf("Status: %s\n\n", ptr->available ? "Available" : "Borrowed");
+        ptr = ptr->next;
     }
 }
+
 
 /**
  * load_books - loads book data from a file into a linked list
