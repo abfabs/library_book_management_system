@@ -62,8 +62,11 @@ void display_books(Book *head)
  */
 int load_books(const char *filename, Book **head)
 {
-    FILE *file = fopen(filename, "r");
-    char line[256], title[100], author[100], isbn[20];
+    FILE *file;
+    file = fopen(filename, "r");
+
+    char line[256];
+    char title[100], author[100], isbn[20];
     int available;
 
     if (file == NULL)
@@ -76,7 +79,8 @@ int load_books(const char *filename, Book **head)
     {
         if (sscanf(line, "%99[^|]|%99[^|]|%19[^|]|%d", title, author, isbn, &available) == 4)
         {
-            if (!add_book(head, title, author, isbn, available))
+            int success = add_book(head, title, author, isbn, available);
+            if (success == 0)
             {
                 printf("Failed to add book: %s\n", title);
                 fclose(file);
@@ -98,7 +102,7 @@ void free_books(Book *head)
 {
     Book *temp;
 
-    while (head)
+    while (head != NULL)
     {
         temp = head;
         head = head->next;

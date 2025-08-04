@@ -9,11 +9,12 @@
 int main(void)
 {
     Book *library = NULL;
-    int choice;
     int result;
+    int choice;
 
     printf("Loading books from file...\n");
     result = load_books("books.txt", &library);
+    
     if (result != 0)
     {
         printf("Error: Failed to load books from file.\n");
@@ -30,8 +31,7 @@ int main(void)
         if (scanf("%d", &choice) != 1 || (choice != 1 && choice != 2))
         {
             printf("Invalid choice. Please enter 1 or 2.\n");
-            while (getchar() != '\n')  // clear input buffer
-                ;
+            while (getchar() != '\n');  // clear input buffer
             continue;
         }
 
