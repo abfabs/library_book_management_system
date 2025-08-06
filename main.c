@@ -1,21 +1,23 @@
 #include "book.h"
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * main - Entry point for the Library Book Management System
  *
  * Return: Always 0 (Success)
  */
- 
 int main(void)
 {
     Book *library = NULL;
     int result;
     int choice;
+    char input[100];
 
     printf("Loading books from file...\n");
     result = load_books("books.txt", &library);
-    
+
     if (result != 0)
     {
         printf("Error: Failed to load books from file.\n");
@@ -29,10 +31,21 @@ int main(void)
         printf("2. Exit\n");
         printf("Enter choice: ");
 
-        if (scanf("%d", &choice) != 1 || (choice != 1 && choice != 2))
+        if (!fgets(input, sizeof(input), stdin))
+        {
+            printf("Error reading input. Please try again.\n");
+            continue;
+        }
+
+        // Remove trailing newline if present
+        input[strcspn(input, "\n")] = '\0';
+
+        int chars_consumed = 0;
+        if (sscanf(input, "%d%n", &choice, &chars_consumed) != 1 ||
+            (choice != 1 && choice != 2) ||
+            input[chars_consumed] != '\0')
         {
             printf("Invalid choice. Please enter 1 or 2.\n");
-            while (getchar() != '\n');  // clear input buffer
             continue;
         }
 

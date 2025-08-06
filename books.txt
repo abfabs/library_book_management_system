@@ -1,77 +1,77 @@
-Love in the Time of Cholera|Gabriel Garcia Marquez|9780307389732|1
-One Hundred Years of Solitude|Gabriel Garcia Marquez|9780060883287|1
-Chronicle of a Death Foretold|Gabriel Garcia Marquez|9781400034710|1
-The Autumn of the Patriarch|Gabriel Garcia Marquez|9780060882860|1
-In Evil Hour|Gabriel García Márquez|9780060932688|1
-No One Writes to the Colonel|Gabriel García Márquez|9780060534033|1
-Of Love and Other Demons|Gabriel García Márquez|9780679755810|1
-Leaf Storm|Gabriel García Márquez|9780060883287|1
-Strange Pilgrims|Gabriel García Márquez|9780061543636|1
-Foundation|Isaac Asimov|9780553293357|1
-Foundation and Empire|Isaac Asimov|9780553293371|1
-Second Foundation|Isaac Asimov|9780553293364|1
-Foundation's Edge|Isaac Asimov|9780553293388|1
-Foundation and Earth|Isaac Asimov|9780553293395|1
-Prelude to Foundation|Isaac Asimov|9780553565072|1
-Forward the Foundation|Isaac Asimov|9780553565089|1
-Dune|Frank Herbert|9780441013593|1
-Dune Messiah|Frank Herbert|9780441172696|1
-Children of Dune|Frank Herbert|9780441104024|1
-God Emperor of Dune|Frank Herbert|9780441294671|1
-Heretics of Dune|Frank Herbert|9780441328000|1
-Chapterhouse: Dune|Frank Herbert|9780441102679|1
-Hunters of Dune|Brian Herbert|9780765351492|1
-The Hitchhiker's Guide to the Galaxy|Douglas Adams|9780345391803|1
-The Restaurant at the End of the Universe|Douglas Adams|9780345391810|1
-Life, the Universe and Everything|Douglas Adams|9780345391827|1
-So Long, and Thanks for All the Fish|Douglas Adams|9780345391834|1
-Mostly Harmless|Douglas Adams|9780345391858|1
-Whatever|Michel Houellebecq|9780312427196|1
-The Map and the Territory|Michel Houellebecq|9780316057533|1
-Submission|Michel Houellebecq|9781590515563|1
-The Elementary Particles|Michel Houellebecq|9780312427189|1
-Platform|Michel Houellebecq|9780812977794|1
-Atomised|Michel Houellebecq|9780375707612|1
-Serotonin|Michel Houellebecq|9781590518946|1
-The Body Where I Was Born|Guadalupe Nettel|9781609807514|1
-Still Born|Guadalupe Nettel|9781913867314|1
-Pachinko|Min Jin Lee|9781455563937|1
-Free Food for Millionaires|Min Jin Lee|9780446699855|1
-Americanah|Chimamanda Ngozi Adichie|9780307455926|1
-Half of a Yellow Sun|Chimamanda Ngozi Adichie|9781400095209|1
-Purple Hibiscus|Chimamanda Ngozi Adichie|9781616202415|1
-Dream Count|Chimamanda Ngozi Adichie|9780000000001|1
-American Pastoral|Philip Roth|9780375701429|1
-Exit Ghost|Philip Roth|9780307277290|1
-Portnoy's Complaint|Philip Roth|9780679750151|1
-Goodbye, Columbus|Philip Roth|9780307277876|1
-Letting Go|Philip Roth|9780375705250|1
-The Counterlife|Philip Roth|9780679725970|1
-The Plot Against America|Philip Roth|9780812979217|1
-Indignation|Philip Roth|9780307377270|1
-Suddenly, a Knock on the Door|Etgar Keret|9780374533335|1
-The Bus Driver Who Wanted to Be God & Other Stories|Etgar Keret|9780385476140|1
-Missing Kissinger|Etgar Keret|9780374104318|1
-Kneller's Happy Campers|Etgar Keret|9780385349630|1
-Norwegian Wood|Haruki Murakami|9780375704024|1
-Kafka on the Shore|Haruki Murakami|9781400079278|1
-1Q84|Haruki Murakami|9780307593314|1
-The Wind-Up Bird Chronicle|Haruki Murakami|9780679775437|1
-Men Without Women|Haruki Murakami|9780451494627|1
-A Wild Sheep Chase|Haruki Murakami|9780375718946|1
-Killing Commendatore|Haruki Murakami|9780525520047|1
-What I Talk About When I Talk About Running|Haruki Murakami|9780307389832|1
-Dance Dance Dance|Haruki Murakami|9780375704024|1
-After the Quake|Haruki Murakami|9780375703928|1
-Hard-Boiled Wonderland and the End of the World|Haruki Murakami|9780375703898|1
-South of the Border, West of the Sun|Haruki Murakami|9780307267536|1
-Hear the Wind Sing|Haruki Murakami|9780393339496|1
-Never Let Me Go|Kazuo Ishiguro|9781400078776|1
-The Remains of the Day|Kazuo Ishiguro|9780679731723|1
-Klara and the Sun|Kazuo Ishiguro|9780593318171|1
-An Artist of the Floating World|Kazuo Ishiguro|9780679730484|1
-When We Were Orphans|Kazuo Ishiguro|9780571190311|1
-I Feel Bad About My Neck|Nora Ephron|9780307276827|1
-Heartburn|Nora Ephron|9780679767951|1
-Wallflower at the Orgy|Nora Ephron|9780307277869|1
-Crazy Salad|Nora Ephron|9780345390905|1
+Love in the Time of Cholera|Gabriel Garcia Marquez|9780307389732|4|4
+One Hundred Years of Solitude|Gabriel Garcia Marquez|9780060883287|5|4
+Chronicle of a Death Foretold|Gabriel Garcia Marquez|9781400034710|2|1
+The Autumn of the Patriarch|Gabriel Garcia Marquez|9780060882860|3|3
+In Evil Hour|Gabriel García Márquez|9780060932688|5|2
+No One Writes to the Colonel|Gabriel García Márquez|9780060534033|4|1
+Of Love and Other Demons|Gabriel García Márquez|9780679755810|3|3
+Leaf Storm|Gabriel García Márquez|9780060883287|2|1
+Strange Pilgrims|Gabriel García Márquez|9780061543636|3|1
+Foundation|Isaac Asimov|9780553293357|5|5
+Foundation and Empire|Isaac Asimov|9780553293371|4|2
+Second Foundation|Isaac Asimov|9780553293364|5|3
+Foundation's Edge|Isaac Asimov|9780553293388|3|3
+Foundation and Earth|Isaac Asimov|9780553293395|4|1
+Prelude to Foundation|Isaac Asimov|9780553565072|5|2
+Forward the Foundation|Isaac Asimov|9780553565089|5|4
+Dune|Frank Herbert|9780441013593|3|1
+Dune Messiah|Frank Herbert|9780441172696|4|3
+Children of Dune|Frank Herbert|9780441104024|2|1
+God Emperor of Dune|Frank Herbert|9780441294671|5|4
+Heretics of Dune|Frank Herbert|9780441328000|5|2
+Chapterhouse: Dune|Frank Herbert|9780441102679|3|1
+Hunters of Dune|Brian Herbert|9780765351492|4|2
+The Hitchhiker's Guide to the Galaxy|Douglas Adams|9780345391803|5|3
+The Restaurant at the End of the Universe|Douglas Adams|9780345391810|4|2
+Life, the Universe and Everything|Douglas Adams|9780345391827|5|5
+So Long, and Thanks for All the Fish|Douglas Adams|9780345391834|3|2
+Mostly Harmless|Douglas Adams|9780345391858|5|4
+Whatever|Michel Houellebecq|9780312427196|4|1
+The Map and the Territory|Michel Houellebecq|9780316057533|5|2
+Submission|Michel Houellebecq|9781590515563|3|1
+The Elementary Particles|Michel Houellebecq|9780312427189|5|5
+Platform|Michel Houellebecq|9780812977794|4|2
+Atomised|Michel Houellebecq|9780375707612|3|3
+Serotonin|Michel Houellebecq|9781590518946|5|1
+The Body Where I Was Born|Guadalupe Nettel|9781609807514|4|4
+Still Born|Guadalupe Nettel|9781913867314|3|1
+Pachinko|Min Jin Lee|9781455563937|2|2
+Free Food for Millionaires|Min Jin Lee|9780446699855|5|5
+Americanah|Chimamanda Ngozi Adichie|9780307455926|4|3
+Half of a Yellow Sun|Chimamanda Ngozi Adichie|9781400095209|5|4
+Purple Hibiscus|Chimamanda Ngozi Adichie|9781616202415|3|1
+Dream Count|Chimamanda Ngozi Adichie|9780000000001|5|3
+American Pastoral|Philip Roth|9780375701429|5|2
+Exit Ghost|Philip Roth|9780307277290|3|3
+Portnoy's Complaint|Philip Roth|9780679750151|4|2
+Goodbye, Columbus|Philip Roth|9780307277876|3|1
+Letting Go|Philip Roth|9780375705250|5|4
+The Counterlife|Philip Roth|9780679725970|5|3
+The Plot Against America|Philip Roth|9780812979217|4|2
+Indignation|Philip Roth|9780307377270|3|1
+Suddenly, a Knock on the Door|Etgar Keret|9780374533335|5|4
+The Bus Driver Who Wanted to Be God & Other Stories|Etgar Keret|9780385476140|5|3
+Missing Kissinger|Etgar Keret|9780374104318|4|1
+Kneller's Happy Campers|Etgar Keret|9780385349630|3|1
+Norwegian Wood|Haruki Murakami|9780375704024|5|4
+Kafka on the Shore|Haruki Murakami|9781400079278|4|2
+1Q84|Haruki Murakami|9780307593314|3|1
+The Wind-Up Bird Chronicle|Haruki Murakami|9780679775437|5|3
+Men Without Women|Haruki Murakami|9780451494627|4|1
+A Wild Sheep Chase|Haruki Murakami|9780375718946|3|1
+Killing Commendatore|Haruki Murakami|9780525520047|5|4
+What I Talk About When I Talk About Running|Haruki Murakami|9780307389832|4|3
+Dance Dance Dance|Haruki Murakami|9780375704024|5|4
+After the Quake|Haruki Murakami|9780375703928|3|2
+Hard-Boiled Wonderland and the End of the World|Haruki Murakami|9780375703898|2|1
+South of the Border, West of the Sun|Haruki Murakami|9780307267536|4|1
+Hear the Wind Sing|Haruki Murakami|9780393339496|5|5
+Never Let Me Go|Kazuo Ishiguro|9781400078776|3|3
+The Remains of the Day|Kazuo Ishiguro|9780679731723|4|1
+Klara and the Sun|Kazuo Ishiguro|9780593318171|5|3
+An Artist of the Floating World|Kazuo Ishiguro|9780679730484|5|4
+When We Were Orphans|Kazuo Ishiguro|9780571190311|4|2
+I Feel Bad About My Neck|Nora Ephron|9780307276827|5|3
+Heartburn|Nora Ephron|9780679767951|3|1
+Wallflower at the Orgy|Nora Ephron|9780307277869|4|1
+Crazy Salad|Nora Ephron|9780345390905|5|4
