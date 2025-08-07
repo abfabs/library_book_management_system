@@ -1,18 +1,16 @@
 #ifndef BOOK_H
 #define BOOK_H
 
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include <stddef.h>
 
 /**
- * struct Book - Struct representing a book in the library
+ * struct Book - Represents a book in the library
  * @title: Title of the book
  * @author: Author of the book
- * @isbn: ISBN number
+ * @isbn: ISBN of the book
  * @total_copies: Total number of copies the library owns
- * @available_copies: Number of copies currently available
- * @next: Pointer to the next book in the list
+ * @available_copies: Number of copies currently available for borrowing
+ * @next: Pointer to the next book in the linked list
  */
 typedef struct Book
 {
@@ -24,18 +22,23 @@ typedef struct Book
     struct Book *next;
 } Book;
 
-/* Core library functions */
-int add_book(Book **head, char *title, char *author, char *isbn, int total_copies, int available_copies);
-void display_book(const Book *book);
-void display_all_books(const Book *head);
+/* File operations */
 int load_books(const char *filename, Book **head);
 int save_books(const char *filename, const Book *head);
+
+/* Book operations */
+int add_book(Book **head, const char *title, const char *author,
+             const char *isbn, int total_copies, int available_copies);
+void display_book(const Book *book);
+void display_all_books(const Book *head);
 void free_books(Book *head);
-int add_book_from_input(Book **head);
 
 /* Utility functions */
 Book *search_book_by_title(Book *head, const char *title);
 Book *search_book_by_isbn(Book *head, const char *isbn);
+void sort_books(Book **head, int sort_by);
+int add_book_from_input(Book **head);
 int update_availability(Book *head, const char *isbn, int borrow);
+void to_lower(const char *src, char *dest);
 
 #endif /* BOOK_H */

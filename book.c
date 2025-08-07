@@ -1,4 +1,9 @@
 #include "book.h"
+#include "book.h"
+#include <stdlib.h> 
+#include <string.h> 
+#include <stddef.h> 
+#include <stdio.h>
 
 /**
  * add_book - Adds a new book to the linked list
@@ -11,7 +16,7 @@
  *
  * Return: 1 if successful, 0 if failed
  */
-int add_book(Book **head, char *title, char *author, char *isbn,
+int add_book(Book **head, const char *title, const char *author, const char *isbn,
              int total_copies, int available_copies)
 {
     Book *new_book = malloc(sizeof(Book));
@@ -33,102 +38,6 @@ int add_book(Book **head, char *title, char *author, char *isbn,
     *head = new_book;
 
     return 1;
-}
-
-#include "book.h"
-#include <stdio.h>
-#include <string.h>
-
-int add_book_from_input(Book **head)
-{
-    char title[100], author[100], isbn[20];
-    int total_copies, available_copies;
-
-    printf("Enter title: ");
-    if (!fgets(title, sizeof(title), stdin))
-        return 0;
-    title[strcspn(title, "\n")] = '\0';
-
-    printf("Enter author: ");
-    if (!fgets(author, sizeof(author), stdin))
-        return 0;
-    author[strcspn(author, "\n")] = '\0';
-
-    printf("Enter ISBN: ");
-    if (!fgets(isbn, sizeof(isbn), stdin))
-        return 0;
-    isbn[strcspn(isbn, "\n")] = '\0';
-
-    printf("Enter total copies: ");
-    if (scanf("%d", &total_copies) != 1 || total_copies < 0)
-    {
-        while (getchar() != '\n'); // clear stdin
-        printf("Invalid number.\n");
-        return 0;
-    }
-    while (getchar() != '\n'); // clear stdin
-
-    printf("Enter available copies: ");
-    if (scanf("%d", &available_copies) != 1 || available_copies < 0 || available_copies > total_copies)
-    {
-        while (getchar() != '\n'); // clear stdin
-        printf("Invalid number.\n");
-        return 0;
-    }
-    while (getchar() != '\n'); // clear stdin
-
-    return add_book(head, title, author, isbn, total_copies, available_copies);
-}
-/**
- * update_availability - Updates the available copies of a book by ISBN
- * @head: Pointer to the head of the book linked list
- * @isbn: ISBN string to find the book
- * @borrow: 1 to borrow (decrease available), 0 to return (increase available)
- *
- * Return: 1 if update successful, 0 if book not found or invalid operation
- */
-int update_availability(Book *head, const char *isbn, int borrow)
-{
-    Book *current = head;
-
-    while (current != NULL)
-    {
-        if (strcmp(current->isbn, isbn) == 0)
-        {
-            if (borrow)
-            {
-                if (current->available_copies > 0)
-                {
-                    current->available_copies--;
-                    printf("Book borrowed successfully.\n");
-                    return 1;
-                }
-                else
-                {
-                    printf("No copies available to borrow.\n");
-                    return 0;
-                }
-            }
-            else // Returning a book
-            {
-                if (current->available_copies < current->total_copies)
-                {
-                    current->available_copies++;
-                    printf("Book returned successfully.\n");
-                    return 1;
-                }
-                else
-                {
-                    printf("All copies are already returned.\n");
-                    return 0;
-                }
-            }
-        }
-        current = current->next;
-    }
-
-    printf("Book with ISBN %s not found.\n", isbn);
-    return 0;
 }
 
 /**
