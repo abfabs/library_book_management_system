@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
-OBJ = main.o book.o file_ops.o   # add file_ops.o here
+OBJ = main.o book.o file_ops.o utility.o
 EXEC = library
 
 all: $(EXEC)
@@ -16,6 +16,9 @@ book.o: book.c book.h
 
 file_ops.o: file_ops.c book.h
 	$(CC) $(CFLAGS) -c file_ops.c
+
+utility.o: utility.c book.h
+	$(CC) $(CFLAGS) -c utility.c
 
 clean:
 	rm -f $(OBJ) $(EXEC)

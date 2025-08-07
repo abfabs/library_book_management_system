@@ -47,3 +47,20 @@ int load_books(const char *filename, Book **head)
     fclose(file);
     return 0;
 }
+
+int save_books(const char *filename, const Book *head)
+{
+    FILE *file = fopen(filename, "w");
+    if (!file)
+        return 1;
+
+    while (head)
+    {
+        fprintf(file, "%s;%s;%s;%d;%d\n", head->title, head->author, head->isbn,
+                head->total_copies, head->available_copies);
+        head = head->next;
+    }
+
+    fclose(file);
+    return 0;
+}
