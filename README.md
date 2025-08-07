@@ -122,8 +122,22 @@ This project demonstrates how to build a functional system in C with persistent 
 
 ---
 
-## Developers
-This project was developed by:
+## License
 
-- Alba Eftimi
-- Sokol Gjeka
+This project is for educational purposes only and is part of the **Holberton School** / *Holberton Basics* curriculum.
+
+---
+
+## Authors
+
+<strong>Alba Eftimi</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <strong>Sokol Gjeka</strong>  
+GitHub: <a href="https://github.com/abfabs">abfabs</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;GitHub: <a href="https://github.com/sokolgj19">sokolgj19</a>
+
+---
+
+<p align="center">
+  <em>August 2025</em><br>
+  <em>Tirana, Albania</em>
+</p>
+
+```
