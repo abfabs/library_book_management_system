@@ -1,4 +1,7 @@
 #include "book.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 
 /**
  * load_books - loads book data from a file into a linked list
@@ -10,7 +13,7 @@
 int load_books(const char *filename, Book **head)
 {
     FILE *file = fopen(filename, "r");
-    if (file == NULL)
+    if (!file)
         return 1;
 
     char line[512];
@@ -19,7 +22,7 @@ int load_books(const char *filename, Book **head)
         char *title, *author, *isbn;
         int total_copies, available_copies;
 
-        // Remove trailing newline
+        // Remove trailing newline if present
         line[strcspn(line, "\n")] = '\0';
 
         title = strtok(line, "|");
