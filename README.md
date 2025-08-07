@@ -1,69 +1,129 @@
 # Library Book Management System
 
-##  Type of Application  
-A command-line application to manage books in a small library. Users will be able to add new books, display the catalog, search for specific titles or ISBNs, update availability status (borrow/return), and save/load book data using files.
+## Type of Application
 
-##  Purpose  
-This project simulates a simplified library system using C programming. It will use **structs** to represent books and a **linked list** to dynamically store and manage them. The program helps reinforce skills like function use, file handling, searching, sorting, and memory management.
+A C-based command-line tool built to manage a simple library system. The program is entirely text-based and runs in the terminal, using standard input and output for interaction. The application lets users add new books, search for them by title, author, or ISBN, and keep track of how many copies are available. All the data is saved to and loaded from a plain text file, so changes persist between runs. While it’s a basic system, it covers the core functionality you'd expect in a minimal library manager, and it’s a good example of how to use linked lists and file I/O in C.
 
-## Key Functionalities  
-- Add new book  
-- Display all books  
-- Search for book by **title** or **ISBN**  
-- Mark book as **borrowed/returned**  
-- Save and load book data from file  
-- Exit program
+---
 
-##  Data Representation
+## Purpose
+
+The goal of this project was to build a simple system for managing books in a small library setting. It allows users to store, find, and update book records efficiently. More than just functionality, the project is meant to demonstrate how core C programming concepts like data structures, file handling, and modular code can come together in a practical application.
+
+---
+
+## Key Functionalities
+
+- Adds a new book from user input
+- Displays all stored books
+- Searches for books by title or ISBN
+- Sorts books by title or author
+- Updates available copies(Borrowed/Returned
+- Saves book records to a file
+- Loads book records from a file
+- Exits and frees all dynamically allocated memory
+
+---
+
+## Data Representation
+
+Book information is stored in the following format in a text file (`books.txt`):
+
+```
+
+Title|Author|ISBN|TotalCopies|AvailableCopies
+
+```
+
+Example:
+```
+
+Foundation|Isaac Asimov|9780553293357|5|3
+
+````
+
+This allows for easy parsing and writing to file.
+
+---
+
+## Data Structure
+
+Books are stored in a singly linked list using the following `struct`:
+
 ```c
 typedef struct Book {
     char title[100];
     char author[100];
     char isbn[20];
-    int available; // 1 = available, 0 = borrowed
-    struct Book *next; // For linked list
+    int total_copies;
+    int available_copies;
+    struct Book *next;
 } Book;
-```
-## Data Structure
+````
 
-Usage of a linked list to store books. This allows easy dynamic addition/removal and flexibility without knowing the number of books in advance.
+Each book is dynamically allocated and linked to the next.
 
-## Planned Menu Options
-```
-1. Add a New Book  
-2. Display All Books  
-3. Search Book by Title  
-4. Search Book by ISBN  
-5. Update Availability (Borrow/Return)  
-6. Save to File  
-7. Load from File  
-8. Exit
-```
+---
+
+## Menu Options
+
+The system provides the following menu options:
+
+1. Add a New Book
+2. Display All Books
+3. Search Book by Title
+4. Search Book by ISBN
+5. Update Availability (Borrow/Return)
+6. Sort Books (by Title or Author)
+7. Save to File
+8. Load from File
+9. Exit
+
+Users interact by entering the number corresponding to the desired option.
+
+---
+
 ## Technical Implementation
-The program will be developed in C and run in the terminal as a menu-driven application. It will include:
 
-- Structs to represent books
-- Linked list to dynamically store book data
-- Functions to modularize operations (add, search, update, etc.)
-- Switch statements to handle user menu choices
-- File handling for saving and loading book records
-- Linear search to find books by title or ISBN
+* **Language**: C (standard C99)
+* **Data Storage**: Singly linked list in memory
+* **Persistence**: Book data is saved to and loaded from `books.txt`
+* **Memory Management**: `malloc` and `free` are used to manage dynamic memory
+* **Input Validation**:
 
+  * All user inputs are validated
+  * Menu input must be numeric
+  * Book data is checked for logical constraints (e.g., available ≤ total)
+* **Modular Design**:
 
-## Expected Outcome
+  * `main.c`: Entry point, user menu
+  * `book.c`: Book-related functions (add, display, free)
+  * `file_ops.c`: Load/save from/to file
+  * `utility.c`: Search, sort, availability update, input helpers
+  * `book.h`: Struct and function declarations
 
-By the end of the project, we aim to deliver:
+Compile using:
 
-- A fully functional, interactive Command Line interface application
+```bash
+gcc -Wall -Werror -Wextra -std=c99 main.c book.c file_ops.c utility.c -o library
+```
 
-- Real-time book management with a dynamic list
+Run the application with:
 
-- Status tracking for borrowed/available books
+```bash
+./library
+```
 
-- Save/load functionality using text files
+---
+
+## Outcome
+
+This project demonstrates how to build a functional system in C with persistent storage, dynamic memory usage, and a clean user interface via the terminal. It highlights key software engineering principles like modularity, data abstraction, and memory safety.
+
+---
 
 ## Developers
-This project is developed by:
+This project was developed by:
 
 - Alba Eftimi
 - Sokol Gjeka
