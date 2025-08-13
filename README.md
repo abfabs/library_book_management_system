@@ -4,6 +4,8 @@
 
 A C-based command-line tool built to manage a simple library system. The program is entirely text-based and runs in the terminal, using standard input and output for interaction. The application lets users add new books, search for them by title, author, or ISBN, and keep track of how many copies are available. All the data is saved to and loaded from a plain text file, so changes persist between runs. While it’s a basic system, it covers the core functionality you'd expect in a minimal library manager, and it’s a good example of how to use linked lists and file I/O in C.
 
+![Library System Diagram](images/diagram.png)
+
 ---
 
 ## Purpose
