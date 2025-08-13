@@ -3,230 +3,257 @@
 #include <stdlib.h>
 #include <string.h>
 
-/**
- * main - Entry point for the Library Book Management System
- *
- * Return: Always 0 (Success)
- */
+/* Function prototypes */
+void print_menu(void);
+int get_valid_choice(int min, int max);
+void handle_add_book(Book **library);
+void handle_display_books(Book *library);
+void handle_search_title(Book *library);
+void handle_search_isbn(Book *library);
+void handle_update_availability(Book *library);
+void handle_sort_books(Book **library);
+void handle_save_books(Book *library);
+void handle_load_books(Book **library);
+void handle_exit(Book **library);
+
 int main(void)
 {
-	Book *library = NULL;
-	int result;
-	int choice;
-	char input[100];
+    Book *library = NULL;
+    int result, choice;
 
-	printf("Loading books from file...\n");
-	result = load_books("books.txt", &library);
-	if (result != 0)
-	{
-		printf("Error: Failed to load books from file.\n");
-		return (1);
-	}
+    printf("Loading books from file...\n");
+    result = load_books("books.txt", &library);
+    if (result != 0)
+    {
+        printf("Error: Failed to load books from file.\n");
+        return 1;
+    }
 
-	while (1)
-	{
-		printf("\nLibrary Menu:\n");
-		printf("1. Add a New Book\n");
-		printf("2. Display All Books\n");
-		printf("3. Search Book by Title\n");
-		printf("4. Search Book by ISBN\n");
-		printf("5. Update Availability (Borrow/Return)\n");
-		printf("6. Sort Books\n");
-		printf("7. Save to File\n");
-		printf("8. Load from File\n");
-		printf("9. Exit\n");
-		printf("Enter choice: \n");
+    while (1)
+    {
+        print_menu();
+        choice = get_valid_choice(1, 9);
 
-		if (!fgets(input, sizeof(input), stdin))
-		{
-			printf("Error reading input. Please try again.\n");
-			continue;
-		}
+        switch (choice)
+        {
+            case 1: handle_add_book(&library); break;
+            case 2: handle_display_books(library); break;
+            case 3: handle_search_title(library); break;
+            case 4: handle_search_isbn(library); break;
+            case 5: handle_update_availability(library); break;
+            case 6: handle_sort_books(&library); break;
+            case 7: handle_save_books(library); break;
+            case 8: handle_load_books(&library); break;
+            case 9: handle_exit(&library); return 0;
+        }
+    }
 
-		input[strcspn(input, "\n")] = '\0';
+    return 0;
+}
 
-		/* Validate input */
-		{
-			int valid = 1;
-			size_t i;
+/* Prints the menu */
+void print_menu(void)
+{
+    printf("\nLibrary Menu:\n");
+    printf("1. Add a New Book\n");
+    printf("2. Display All Books\n");
+    printf("3. Search Book by Title\n");
+    printf("4. Search Book by ISBN\n");
+    printf("5. Update Availability (Borrow/Return)\n");
+    printf("6. Sort Books\n");
+    printf("7. Save to File\n");
+    printf("8. Load from File\n");
+    printf("9. Exit\n");
+    printf("Enter choice: \n");
+}
 
-			for (i = 0; input[i] != '\0'; i++)
-			{
-				if (input[i] < '0' || input[i] > '9')
-				{
-					valid = 0;
-					break;
-				}
-			}
+/* Validates and returns a number input within [min, max] */
+int get_valid_choice(int min, int max)
+{
+    char input[100];
+    int choice;
 
-			if (!valid || sscanf(input, "%d", &choice) != 1 || choice < 1 || choice > 9)
-			{
-				printf("Invalid choice. Please enter a number between 1 and 9.\n");
-				continue;
-			}
-		}
+    while (1)
+    {
+        if (!fgets(input, sizeof(input), stdin))
+        {
+            printf("Error reading input. Try again.\n");
+            continue;
+        }
 
-		switch (choice)
-		{
-		case 1:
-			if (!add_book_from_input(&library))
-				printf("Failed to add new book.\n");
-			break;
+        input[strcspn(input, "\n")] = '\0';
 
-		case 2:
-			display_all_books(library);
-			break;
+        int valid = 1;
+        for (size_t i = 0; input[i] != '\0'; i++)
+        {
+            if (input[i] < '0' || input[i] > '9')
+            {
+                valid = 0;
+                break;
+            }
+        }
 
-		case 3:
-		{
-			char title[100];
+        if (!valid || sscanf(input, "%d", &choice) != 1 || choice < min || choice > max)
+        {
+            printf("Invalid choice. Enter a number between %d and %d.\n", min, max);
+            continue;
+        }
 
-			printf("Enter title to search: ");
-			if (!fgets(title, sizeof(title), stdin))
-			{
-				printf("This book does not exist in our library.\n");
-				break;
-			}
-			title[strcspn(title, "\n")] = '\0';
+        return choice;
+    }
+}
 
-			search_book_by_title(library, title);
-			break;
-		}
+/* Menu option handlers */
 
-		case 4:
-		{
-			char isbn[20];
-			Book *found;
+void handle_add_book(Book **library)
+{
+    if (!add_book_from_input(library))
+        printf("Failed to add new book.\n");
+}
 
-			printf("Enter ISBN to search: ");
-			if (!fgets(isbn, sizeof(isbn), stdin))
-			{
-				printf("Input error.\n");
-				break;
-			}
-			isbn[strcspn(isbn, "\n")] = '\0';
+void handle_display_books(Book *library)
+{
+    display_all_books(library);
+}
 
-			found = search_book_by_isbn(library, isbn);
-			if (found)
-				display_book(found);
-			else
-				printf("Book not found.\n");
-			break;
-		}
+void handle_search_title(Book *library)
+{
+    char title[100];
 
-		case 5:
-		{
-			int search_field = 0;
-			char search_str[100];
-			char action_input[10];
-			int borrow = -1;
+    printf("Enter title to search: ");
+    if (!fgets(title, sizeof(title), stdin))
+    {
+        printf("Input error.\n");
+        return;
+    }
+    title[strcspn(title, "\n")] = '\0';
 
-			printf("Update availability by:\n");
-			printf("1. ISBN\n2. Title\n3. Author\n");
-			printf("Enter choice: ");
-			if (!fgets(search_str, sizeof(search_str), stdin))
-			{
-				printf("Input error.\n");
-				break;
-			}
-			search_field = atoi(search_str);
-			if (search_field < 1 || search_field > 3)
-			{
-				printf("Invalid choice.\n");
-				break;
-			}
+    search_book_by_title(library, title);
+}
 
-			printf("Enter search string: ");
-			if (!fgets(search_str, sizeof(search_str), stdin))
-			{
-				printf("Input error.\n");
-				break;
-			}
-			search_str[strcspn(search_str, "\n")] = '\0';
+void handle_search_isbn(Book *library)
+{
+    char isbn[20];
+    Book *found;
 
-			printf("Enter 1 to borrow, 0 to return: ");
-			if (!fgets(action_input, sizeof(action_input), stdin))
-			{
-				printf("Input error.\n");
-				break;
-			}
-			action_input[strcspn(action_input, "\n")] = '\0';
+    printf("Enter ISBN to search: ");
+    if (!fgets(isbn, sizeof(isbn), stdin))
+    {
+        printf("Input error.\n");
+        return;
+    }
+    isbn[strcspn(isbn, "\n")] = '\0';
 
-			if (strcmp(action_input, "1") == 0)
-				borrow = 1;
-			else if (strcmp(action_input, "0") == 0)
-				borrow = 0;
-			else
-			{
-				printf("Invalid input for borrow/return.\n");
-				break;
-			}
+    found = search_book_by_isbn(library, isbn);
+    if (found)
+        display_book(found);
+    else
+        printf("Book not found.\n");
+}
 
-			if (!update_availability(library, search_str, borrow, search_field))
-				printf("Failed to update availability.\n");
-			else
-				printf("Availability updated successfully.\n");
-			break;
-		}
+void handle_update_availability(Book *library)
+{
+    int search_field = 0;
+    char search_str[100];
+    char action_input[10];
+    int borrow = -1;
 
-		case 6:
-		{
-			char sort_input[10];
-			int sort_by = 0;
+    printf("Update availability by:\n");
+    printf("1. ISBN\n2. Title\n3. Author\n");
+    printf("Enter choice: ");
+    if (!fgets(search_str, sizeof(search_str), stdin))
+    {
+        printf("Input error.\n");
+        return;
+    }
+    search_field = atoi(search_str);
+    if (search_field < 1 || search_field > 3)
+    {
+        printf("Invalid choice.\n");
+        return;
+    }
 
-			printf("Sort by:\n");
-			printf("1. Title\n");
-			printf("2. Author\n");
-			printf("Enter choice: ");
+    printf("Enter search string: ");
+    if (!fgets(search_str, sizeof(search_str), stdin))
+    {
+        printf("Input error.\n");
+        return;
+    }
+    search_str[strcspn(search_str, "\n")] = '\0';
 
-			if (!fgets(sort_input, sizeof(sort_input), stdin))
-			{
-				printf("Input error.\n");
-				break;
-			}
+    printf("Enter 1 to borrow, 0 to return: ");
+    if (!fgets(action_input, sizeof(action_input), stdin))
+    {
+        printf("Input error.\n");
+        return;
+    }
+    action_input[strcspn(action_input, "\n")] = '\0';
 
-			sort_by = atoi(sort_input);
-			if (sort_by != 1 && sort_by != 2)
-			{
-				printf("Invalid sorting option.\n");
-				break;
-			}
+    if (strcmp(action_input, "1") == 0)
+        borrow = 1;
+    else if (strcmp(action_input, "0") == 0)
+        borrow = 0;
+    else
+    {
+        printf("Invalid input for borrow/return.\n");
+        return;
+    }
 
-			sort_books(&library, sort_by);
-			printf("Books sorted successfully.\n");
-			break;
-		}
+    if (!update_availability(library, search_str, borrow, search_field))
+        printf("Failed to update availability.\n");
+    else
+        printf("Availability updated successfully.\n");
+}
 
-		case 7:
-		{
-			if (save_books("books.txt", library) == 0)
-				printf("Books saved successfully.\n");
-			else
-				printf("Failed to save books.\n");
-			break;
-		}
+void handle_sort_books(Book **library)
+{
+    char sort_input[10];
+    int sort_by = 0;
 
-		case 8:
-		{
-			free_books(library);
-			library = NULL;
+    printf("Sort by:\n");
+    printf("1. Title\n");
+    printf("2. Author\n");
+    printf("Enter choice: ");
 
-			if (load_books("books.txt", &library) == 0)
-				printf("Books loaded successfully.\n");
-			else
-				printf("Failed to load books.\n");
-			break;
-		}
+    if (!fgets(sort_input, sizeof(sort_input), stdin))
+    {
+        printf("Input error.\n");
+        return;
+    }
 
-		case 9:
-		{
-			printf("Exiting program.\n");
-			free_books(library);
-			library = NULL;
-			return (0);
-		}
-		}
-	}
+    sort_by = atoi(sort_input);
+    if (sort_by != 1 && sort_by != 2)
+    {
+        printf("Invalid sorting option.\n");
+        return;
+    }
 
-	return (0);
+    sort_books(library, sort_by);
+    printf("Books sorted successfully.\n");
+}
+
+void handle_save_books(Book *library)
+{
+    if (save_books("books.txt", library) == 0)
+        printf("Books saved successfully.\n");
+    else
+        printf("Failed to save books.\n");
+}
+
+void handle_load_books(Book **library)
+{
+    free_books(*library);
+    *library = NULL;
+
+    if (load_books("books.txt", library) == 0)
+        printf("Books loaded successfully.\n");
+    else
+        printf("Failed to load books.\n");
+}
+
+void handle_exit(Book **library)
+{
+    printf("Exiting program.\n");
+    free_books(*library);
+    *library = NULL;
 }
